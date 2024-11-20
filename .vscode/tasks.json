@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "command": "dotnet",
+    "args": [],
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceRoot}"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "_id": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Build Code Coverage",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "test",
+                "/p:CollectCoverage=true",
+                "/p:CoverletOutputFormat=lcov",
+                "/p:CoverletOutput=./coverage"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+    ]
+}
